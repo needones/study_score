@@ -16,7 +16,7 @@ file_name = os.path.dirname(os.path.realpath(file_name)) + '\cookie\cookie.json'
 driver.delete_all_cookies()
 cookie = json.load(open(file_name, encoding='utf-8'))
 data = cookie['data']
-print(data)
+# print(data)
 for i in data:
     driver.add_cookie(i)
 
@@ -111,6 +111,5 @@ dict_cookie['data'] = a
 data = json.dumps(dict_cookie)
 with open(file_name, 'w', encoding='utf-8')as f:
     f.write(data)
-print(a)
-print(type(a))
+
 driver.quit()
