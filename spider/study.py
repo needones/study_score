@@ -80,6 +80,7 @@ for i in list(range(6)):
         sleep(5)
     while True:
         k = random.randint(0, 19)
+
         if k not in list_vedio:
             list_vedio.append(k)
             break
