@@ -5,7 +5,14 @@ from time import sleep
 
 from selenium import webdriver
 
-driver = webdriver.Chrome()
+# driver = webdriver.Chrome()
+ops = webdriver.ChromeOptions()
+# ops.add_argument('--headless')
+ops.add_argument('--disable-gpu')
+ops.add_argument('--disable-infobars')
+driver = webdriver.Chrome(chrome_options=ops)
+
+
 driver.get('https://www.xuexi.cn')
 sleep(2)
 # windows = driver.window_handles
@@ -42,7 +49,7 @@ for i in list(range(6)):
     for j in list(range(6)):
         sleep(10)
         num = random.randint(200, 350)
-        driver.execute_script("var q=document.documentElement.scrollTop={}".format((j + 1) * num))
+        driver.execute_script("var q=document.documentElement.scrollTop={}".format((j + 2) * num))
         print('第%d次滑动' % (j + 1))
         sleep(20)
     driver.close()
