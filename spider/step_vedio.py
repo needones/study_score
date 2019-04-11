@@ -4,6 +4,9 @@ import random
 from time import sleep
 
 from selenium import webdriver
+from selenium.webdriver import ActionChains
+from selenium.webdriver.common.keys import Keys
+
 '''
 说明：视频独立模块
 修改找不到视频bug
@@ -52,13 +55,15 @@ for i in list(range(6)):
     if i < 2:
         pass
     elif i < 4:
+        ActionChains(driver).key_down(Keys.PAGE_UP)
         driver.find_element_by_xpath('//div[@class="radio_2p2eqv4lwtk00"]/div[2]').click()
         sleep(5)
     else:
+        ActionChains(driver).key_down(Keys.PAGE_UP)
         driver.find_element_by_xpath('//div[@class="radio_2p2eqv4lwtk00"]/div[3]').click()
         sleep(5)
     while True:
-        k = random.randint(0, 19)
+        k = random.randint(0, 10)
 
         if k not in list_vedio:
             list_vedio.append(k)
