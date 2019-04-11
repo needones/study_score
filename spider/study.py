@@ -37,9 +37,9 @@ for i in list(range(5)):
     sleep(3)
     windows = driver.window_handles
     driver.switch_to.window(windows[2])
-    for j in list(range(5)):
+    for j in list(range(6)):
         sleep(10)
-        num = random.randint(150, 300)
+        num = random.randint(200, 350)
         driver.execute_script("var q=document.documentElement.scrollTop={}".format((j + 1) * num))
         print('第%d次滑动' % (j + 1))
         sleep(20)
@@ -63,7 +63,8 @@ driver.switch_to.window(windows[1])
 driver.execute_script("var q=document.documentElement.scrollTop=1000")
 sleep(2)
 # 视频区
-driver.find_element_by_xpath('//div[@id="Chwgg53wi10o00"]/div/div[1]').click()
+# driver.find_element_by_xpath('//div[@id="Chwgg53wi10o00"]/div/div[1]').click()
+driver.find_element_by_xpath('//*[@id="5586"]/div/div/div/div/div/section/div/div/div[1]/div[1]').click()
 sleep(1)
 windows = driver.window_handles
 driver.switch_to.window(windows[2])
@@ -84,7 +85,13 @@ for i in list(range(6)):
         if k not in list_vedio:
             list_vedio.append(k)
             break
-    driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
+    try:
+        driver.find_elements_by_xpath('//div[@class="_252R0WxMJIuJyNty2pZiaL thePic"]')[k].click()
+    except:
+        try:
+            driver.find_elements_by_xpath('//div[@class="_3wnLIRcEni99IWb4rSpguK"]/div/div[1]')[k].click()
+        except:
+            driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
     sleep(2)
     windows = driver.window_handles
     driver.switch_to.window(windows[3])
@@ -99,9 +106,9 @@ for i in list(range(6)):
     windows = driver.window_handles
     driver.switch_to.window(windows[2])
     sleep(2)
+
 driver.close()
-windows = driver.window_handles
-driver.switch_to.window(windows[1])
+
 
 
 
