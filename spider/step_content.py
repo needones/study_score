@@ -7,9 +7,9 @@ from selenium import webdriver
 
 # driver = webdriver.Chrome()
 ops = webdriver.ChromeOptions()
-# ops.add_argument('--headless')
-ops.add_argument('--disable-gpu')
-ops.add_argument('--disable-infobars')
+ops.add_argument('--headless')  # 无头
+ops.add_argument('--disable-gpu')  # 禁用GPU
+ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
 
 
@@ -47,11 +47,14 @@ for i in list(range(6)):
     windows = driver.window_handles
     driver.switch_to.window(windows[2])
     for j in list(range(6)):
-        sleep(10)
+        sleep(5)
         num = random.randint(200, 350)
-        driver.execute_script("var q=document.documentElement.scrollTop={}".format((j + 2) * num))
+        driver.execute_script("var q=document.documentElement.scrollTop={}".format((j + 3) * num))
         print('第%d次滑动' % (j + 1))
         sleep(20)
+    # 滑动到底部
+    driver.execute_script("var q=document.documentElement.scrollTop=100000")
+    sleep(5)
     driver.close()
     sleep(2)
     windows = driver.window_handles

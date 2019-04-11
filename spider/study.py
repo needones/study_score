@@ -11,9 +11,9 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 ops = webdriver.ChromeOptions()
-# ops.add_argument('--headless')
-ops.add_argument('--disable-gpu')
-ops.add_argument('--disable-infobars')
+ops.add_argument('--headless')  # 无头
+ops.add_argument('--disable-gpu')  # 禁用GPU
+ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
 
 driver.get('https://www.xuexi.cn')

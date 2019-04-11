@@ -14,7 +14,7 @@ from selenium.webdriver.common.keys import Keys
 '''
 # 浏览器配置
 ops = webdriver.ChromeOptions()
-# ops.add_argument('--headless') #  无头
+ops.add_argument('--headless')  # 无头
 ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
@@ -55,7 +55,7 @@ driver.switch_to.window(windows[2])
 sleep(2)
 list_vedio = []
 for i in list(range(7)):
-    print('第%d次视频' % (i + 1))
+    print('第%d次视频开始' % (i + 1))
     if i < 2:
         pass
     elif i < 4:
@@ -115,9 +115,11 @@ for i in list(range(7)):
     driver.execute_script("var q=document.documentElement.scrollTop=400")
     sleep(4)
     # 视频睡眠
-    time_s = random.randint(200, 240)
-    # driver.execute_script("var q=document.documentElement.scrollTop=1500")
+    time_s = random.randint(180, 240)
+    driver.execute_script("var q=document.documentElement.scrollTop=800")
     sleep(time_s)
+    driver.execute_script("var q=document.documentElement.scrollTop=20000")
+    sleep(5)
     driver.close()
     sleep(2)
     windows = driver.window_handles
