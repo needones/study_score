@@ -126,4 +126,13 @@ for i in list(range(7)):
     driver.switch_to.window(windows[2])
     sleep(2)
 
+# 写入最新的cookie
+dict_cookie = {}
+a = driver.get_cookies()
+dict_cookie['data'] = a
+data = json.dumps(dict_cookie)
+with open(file_name, 'w', encoding='utf-8')as f:
+    f.write(data)
+
+print('---------恭喜你---12分到手--------')
 driver.quit()
