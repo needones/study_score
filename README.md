@@ -7,6 +7,7 @@
 #### 再复制一份到Python的根目录
 
 ## 2.环境安装
+    安装Python环境，到Python官网下载Python版本，安装加入环境变量
     在项目目录下，pip install -r requirments.txt 即可
 
 ## 3.运行spider目录下的set_cookie.py文件
