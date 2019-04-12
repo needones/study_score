@@ -1,12 +1,12 @@
-# 谷歌浏览器+driver+python安装包
+# 谷歌浏览器+driver+python安装包（Windows版本）
 
     链接：https://pan.baidu.com/s/1VswwG0x4jdZ07hHeiSVohg 
     提取码：glj8 
     复制这段内容后打开百度网盘手机App，操作更方便哦
 
 
-## 1.配置selenium的谷歌浏览器
-    到http://npm.taobao.org/mirrors/chromedriver/ 下载对应自己谷歌浏览器版本的chromedriver
+## 1.配置selenium的谷歌浏览器（上面的链接有资源）
+    到http://npm.taobao.org/mirrors/chromedriver/ 下载对应自己谷歌浏览器版本的chromedriver（
     我使用的谷歌浏览器版本号和chromedriver已上传，仅供参考
     鄙人使用谷歌浏览器版本号win32_71.0.3578.80
 #### 下载好的chromedriver.exe复制到谷歌浏览器的根目录
