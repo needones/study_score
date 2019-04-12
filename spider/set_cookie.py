@@ -8,7 +8,7 @@ driver = webdriver.Chrome()
 driver.get('https://www.xuexi.cn')
 sleep(60)
 # 60s时间内登录成功，等待程序关闭即可
-
+'''cookie有效期很短，基本上每天都要重新登录，运行这个文件'''
 
 windows = driver.window_handles
 driver.switch_to.window(windows[1])
