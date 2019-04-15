@@ -14,7 +14,7 @@ from selenium.webdriver.common.keys import Keys
 '''
 # 浏览器配置
 ops = webdriver.ChromeOptions()
-ops.add_argument('--headless')  # 无头
+# ops.add_argument('--headless')  # 无头
 ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
@@ -36,7 +36,8 @@ driver.refresh()
 sleep(3)
 
 # 学习电视台（观看视频12分，预计40分钟）
-driver.find_element_by_xpath('//div[@class="father-nav"]/ul[2]/li[2]/a').click()
+# driver.find_element_by_xpath('//div[@class="father-nav"]/ul[2]/li[2]/a').click()
+driver.find_element_by_xpath('//div[@class="menu-list"]/div[2]/a[2]').click()
 sleep(5)
 windows = driver.window_handles
 driver.switch_to.window(windows[1])
@@ -46,9 +47,10 @@ sleep(2)
 # 视频区
 # driver.find_element_by_xpath('//div[@id="Chwgg53wi10o00"]/div/div[1]').click()
 try:
-    driver.find_element_by_xpath('//*[@id="5586"]/div/div/div/div/div/section/div/div/div[1]/div[1]').click()
+    # driver.find_element_by_xpath('//*[@id="5586"]/div/div/div/div/div/section/div/div/div[1]/div[1]').click()
+    driver.find_element_by_xpath('//*[@id="495f"]/div/div/div/div/section/div/div/div[1]/div[1]/div/div/span').click()
 except:
-    driver.find_element_by_xpath('//div[@id="Chwgg53wi10o00"]/div/div[1]').click()
+    driver.find_element_by_xpath('//*[@id="5586"]/div/div/div/div/div/section/div/div/div[1]/div[1]/section/div/div/div/div[1]/div/div/div').click()
 sleep(1)
 windows = driver.window_handles
 driver.switch_to.window(windows[2])
@@ -56,9 +58,9 @@ sleep(2)
 list_vedio = []
 for i in list(range(7)):
     print('第%d次视频开始' % (i + 1))
-    if i < 2:
+    if i < 1:
         pass
-    elif i < 4:
+    elif i < 5:
         try:
             driver.find_element_by_xpath('//div[@class="_1KFAyh5wHi8boHp83TMkv-"]/div/div[3]').click()
             sleep(2)
@@ -90,7 +92,7 @@ for i in list(range(7)):
                     sleep(5)
                 except:
                     pass
-    # 随机更改视频
+    # 随机点击视频
     while True:
         k = random.randint(0, 16)
 
@@ -102,10 +104,12 @@ for i in list(range(7)):
             '//div[@class="Iuu474S1L6y5p7yalKQbW grid-gr"]//div[@class="_252R0WxMJIuJyNty2pZiaL thePic"]')[k].click()
     except:
         try:
+            ActionChains(driver).key_down(Keys.PAGE_DOWN).perform()
             driver.find_elements_by_xpath('//div[@class="_252R0WxMJIuJyNty2pZiaL thePic"]')[k].click()
         except:
             try:
-                driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
+                # driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
+                driver.find_elements_by_xpath('//*[@id="1novbsbi47k-5"]/div/div/div/div/div/section/div[3]/section/div/div/div/div')[k].click()
             except:
                 print('第%d次视频获取失败！' % (i + 1))
     sleep(2)
@@ -115,10 +119,12 @@ for i in list(range(7)):
     driver.execute_script("var q=document.documentElement.scrollTop=400")
     sleep(4)
     # 视频睡眠
-    time_s = random.randint(180, 240)
+    time_s = random.randint(200, 350)
     driver.execute_script("var q=document.documentElement.scrollTop=800")
     sleep(time_s)
-    driver.execute_script("var q=document.documentElement.scrollTop=20000")
+    ActionChains(driver).key_down(Keys.PAGE_DOWN).perform()
+    sleep(5)
+    ActionChains(driver).key_down(Keys.PAGE_DOWN).perform()
     sleep(5)
     driver.close()
     sleep(2)

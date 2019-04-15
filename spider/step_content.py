@@ -11,7 +11,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.common.keys import Keys
 
 ops = webdriver.ChromeOptions()
-# ops.add_argument('--headless')  # 无头
+ops.add_argument('--headless')  # 无头
 ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
@@ -36,8 +36,9 @@ sleep(3)
 '''
 独立文章模块
 '''
-# 学习理论（阅读文章12分，预计15分钟）
-driver.find_element_by_xpath('//div[@class="father-nav"]/ul[3]/li[1]/a').click()
+# 学习理论（阅读文章12分，预计20分钟）
+# driver.find_element_by_xpath('//div[@class="father-nav"]/ul[3]/li[1]/a').click()
+driver.find_element_by_xpath('//div[@class="menu-list"]/div[1]/a[3]').click()
 sleep(1)
 windows = driver.window_handles
 driver.switch_to.window(windows[1])
@@ -77,7 +78,7 @@ for i in list(range(7)):
             else:
                 ActionChains(driver).key_down(Keys.PAGE_DOWN).perform()
                 sleep(random.randint(9, 13))
-        print('-----------第{}篇---{}0%---------'.format((i + 1), (j + 1)))
+        print('---第{}篇---{}0%---'.format((i + 1), (j + 1)))
     # 滑动到底部
     driver.execute_script("var q=document.documentElement.scrollTop=100000")
     sleep(2)
@@ -87,7 +88,7 @@ for i in list(range(7)):
     sleep(2)
     windows = driver.window_handles
     driver.switch_to.window(windows[1])
-    print('---------------第%d篇结束-----------------' % (i + 1))
+    print('===============第%d篇结束===============' % (i + 1))
 driver.close()
 sleep(2)
 # 换回首页
