@@ -18,6 +18,8 @@ driver = webdriver.Chrome(chrome_options=ops)
 
 driver.get('https://www.xuexi.cn')
 sleep(2)
+# 隐式等待100s
+driver.implicitly_wait(200)
 # windows = driver.window_handles
 # driver.switch_to.window(windows[1])
 file_name = os.path.dirname(os.path.realpath(__file__))
@@ -31,7 +33,7 @@ for i in data:
 
 sleep(1)
 driver.refresh()
-sleep(3)
+sleep(10)
 
 '''
 独立文章模块
@@ -46,7 +48,7 @@ sleep(2)
 # 7篇
 # list_content = []
 for i in list(range(7)):
-    sleep(2)
+    sleep(10)
     # while True:
     #
     #     kk = random.randint(7, 20)

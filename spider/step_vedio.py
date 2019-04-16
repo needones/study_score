@@ -14,12 +14,14 @@ from selenium.webdriver.common.keys import Keys
 '''
 # 浏览器配置
 ops = webdriver.ChromeOptions()
-# ops.add_argument('--headless')  # 无头
+ops.add_argument('--headless')  # 无头
 ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
 driver.get('https://www.xuexi.cn')
 sleep(2)
+# 隐式等待100s
+driver.implicitly_wait(200)
 # windows = driver.window_handles
 # driver.switch_to.window(windows[1])
 file_name = os.path.dirname(os.path.realpath(__file__))
@@ -50,7 +52,15 @@ try:
     # driver.find_element_by_xpath('//*[@id="5586"]/div/div/div/div/div/section/div/div/div[1]/div[1]').click()
     driver.find_element_by_xpath('//*[@id="495f"]/div/div/div/div/section/div/div/div[1]/div[1]/div/div/span').click()
 except:
-    driver.find_element_by_xpath('//*[@id="5586"]/div/div/div/div/div/section/div/div/div[1]/div[1]/section/div/div/div/div[1]/div/div/div').click()
+    try:
+
+        driver.find_element_by_xpath('//div[@class="Pic"]"]').click()
+    except:
+        try:
+            driver.find_element_by_xpath('//div[@class="Iuu474S1L6y5p7yalKQbW grid-cell"]').click()
+        except:
+            driver.find_element_by_xpath(
+                '//*[@id="1novbsbi47k-5"]/div/div/div/div/div/section/div[3]/section/div/div/div/div/section/div/div/div/div[1]').click()
 sleep(1)
 windows = driver.window_handles
 driver.switch_to.window(windows[2])
@@ -109,7 +119,8 @@ for i in list(range(7)):
         except:
             try:
                 # driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
-                driver.find_elements_by_xpath('//*[@id="1novbsbi47k-5"]/div/div/div/div/div/section/div[3]/section/div/div/div/div')[k].click()
+                driver.find_elements_by_xpath(
+                    '//*[@id="1novbsbi47k-5"]/div/div/div/div/div/section/div[3]/section/div/div/div/div')[k].click()
             except:
                 print('第%d次视频获取失败！' % (i + 1))
     sleep(2)
