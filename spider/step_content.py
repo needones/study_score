@@ -17,9 +17,9 @@ ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提�
 driver = webdriver.Chrome(chrome_options=ops)
 
 driver.get('https://www.xuexi.cn')
-sleep(2)
+sleep(10)
 # 隐式等待100s
-driver.implicitly_wait(200)
+driver.implicitly_wait(20)
 # windows = driver.window_handles
 # driver.switch_to.window(windows[1])
 file_name = os.path.dirname(os.path.realpath(__file__))
@@ -32,7 +32,7 @@ for i in data:
     driver.add_cookie(i)
 
 sleep(1)
-driver.refresh()
+# driver.refresh()
 sleep(10)
 
 '''

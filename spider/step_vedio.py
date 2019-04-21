@@ -19,9 +19,9 @@ ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
 driver = webdriver.Chrome(chrome_options=ops)
 driver.get('https://www.xuexi.cn')
-sleep(2)
+sleep(10)
 # 隐式等待100s
-driver.implicitly_wait(200)
+# driver.implicitly_wait(200)
 # windows = driver.window_handles
 # driver.switch_to.window(windows[1])
 file_name = os.path.dirname(os.path.realpath(__file__))
@@ -44,7 +44,7 @@ sleep(5)
 windows = driver.window_handles
 driver.switch_to.window(windows[1])
 driver.execute_script("var q=document.documentElement.scrollTop=1000")
-sleep(2)
+sleep(10)
 
 # 视频区
 # driver.find_element_by_xpath('//div[@id="Chwgg53wi10o00"]/div/div[1]').click()
@@ -53,7 +53,6 @@ try:
     driver.find_element_by_xpath('//*[@id="495f"]/div/div/div/div/section/div/div/div[1]/div[1]/div/div/span').click()
 except:
     try:
-
         driver.find_element_by_xpath('//div[@class="Pic"]"]').click()
     except:
         try:
