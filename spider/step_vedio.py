@@ -130,7 +130,7 @@ for i in list(range(7)):
             driver.find_elements_by_xpath('//div[@class="_252R0WxMJIuJyNty2pZiaL thePic"]')[k].click()
         except:
             try:
-
+                # driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
                 driver.find_elements_by_xpath(
                     '//*[@id="1novbsbi47k-5"]/div/div/div/div/div/section/div[3]/section/div/div/div/div')[k].click()
             except:
