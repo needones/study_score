@@ -14,7 +14,7 @@ ops = webdriver.ChromeOptions()
 ops.add_argument('--headless')  # 无头
 ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
-driver = webdriver.Chrome(chrome_options=ops)
+driver = webdriver.Chrome(options=ops)
 
 driver.get('https://www.xuexi.cn')
 sleep(10)
@@ -98,12 +98,12 @@ windows = driver.window_handles
 driver.switch_to.window(windows[0])
 
 # 写入最新的cookie
-dict_cookie = {}
-a = driver.get_cookies()
-dict_cookie['data'] = a
-data = json.dumps(dict_cookie)
-with open(file_name, 'w', encoding='utf-8')as f:
-    f.write(data)
+# dict_cookie = {}
+# a = driver.get_cookies()
+# dict_cookie['data'] = a
+# data = json.dumps(dict_cookie)
+# with open(file_name, 'w', encoding='utf-8')as f:
+#     f.write(data)
 print('---------恭喜你---12分到手--------')
 
 sleep(2)

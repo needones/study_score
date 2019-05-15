@@ -17,7 +17,7 @@ ops = webdriver.ChromeOptions()
 ops.add_argument('--headless')  # 无头
 ops.add_argument('--disable-gpu')  # 禁用GPU
 ops.add_argument('--disable-infobars')  # 关闭浏览器上方自动测试提示
-driver = webdriver.Chrome(chrome_options=ops)
+driver = webdriver.Chrome(options=ops)
 driver.get('https://www.xuexi.cn')
 sleep(10)
 # 隐式等待100s
@@ -67,6 +67,7 @@ sleep(2)
 list_vedio = []
 for i in list(range(7)):
     print('第%d次视频开始' % (i + 1))
+    sleep(2)
     if i < 1:
         pass
     elif i < 5:
@@ -109,6 +110,7 @@ for i in list(range(7)):
             list_vedio.append(k)
             break
     try:
+        sleep(3)
         driver.find_elements_by_xpath(
             '//div[@class="Iuu474S1L6y5p7yalKQbW grid-gr"]//div[@class="_252R0WxMJIuJyNty2pZiaL thePic"]')[k].click()
     except:
@@ -117,10 +119,11 @@ for i in list(range(7)):
             driver.find_elements_by_xpath('//div[@class="_252R0WxMJIuJyNty2pZiaL thePic"]')[k].click()
         except:
             try:
-                # driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
+
                 driver.find_elements_by_xpath(
                     '//*[@id="1novbsbi47k-5"]/div/div/div/div/div/section/div[3]/section/div/div/div/div')[k].click()
             except:
+                driver.find_elements_by_xpath('//div[@id="Cd5zymfz1fzs0"]/div/div/div[1]')[k].click()
                 print('第%d次视频获取失败！' % (i + 1))
     sleep(2)
     windows = driver.window_handles
@@ -143,12 +146,12 @@ for i in list(range(7)):
     sleep(2)
 
 # 写入最新的cookie
-dict_cookie = {}
-a = driver.get_cookies()
-dict_cookie['data'] = a
-data = json.dumps(dict_cookie)
-with open(file_name, 'w', encoding='utf-8')as f:
-    f.write(data)
+# dict_cookie = {}
+# a = driver.get_cookies()
+# dict_cookie['data'] = a
+# data = json.dumps(dict_cookie)
+# with open(file_name, 'w', encoding='utf-8')as f:
+#     f.write(data)
 
 print('---------恭喜你---12分到手--------')
 driver.quit()
