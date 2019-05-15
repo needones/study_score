@@ -23,4 +23,5 @@ dict_cookie['data'] = a
 data = json.dumps(dict_cookie)
 with open(file_name + '\cookie.json', 'w', encoding='utf-8')as f:
     f.write(data)
+    print('cookie get success')
 driver.quit()
